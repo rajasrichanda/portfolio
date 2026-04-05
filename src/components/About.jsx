@@ -118,11 +118,14 @@ const About = ({ isDark }) => {
                 }`}
               >
                 <motion.img
-                  src="/profile.jpg"
+                  src={`${import.meta.env.BASE_URL}profile.jpg`}
                   alt="Rajasri Chanda"
                   className="w-full h-full object-cover object-top"
                   animate={{ scale: [1, 1.03, 1] }}
                   transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
+                  onError={(e) => {
+                    e.target.style.display = 'none';
+                  }}
                 />
 
                 {/* Subtle gradient overlay at bottom */}
