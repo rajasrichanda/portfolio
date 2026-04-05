@@ -50,7 +50,7 @@ const Experience = ({ isDark }) => {
         >
           {/* Section Title */}
           <h2
-            className={`text-4xl font-bold mb-16 text-center ${
+            className={`text-2xl sm:text-3xl md:text-4xl font-bold mb-12 sm:mb-16 text-center ${
               isDark ? 'text-white' : 'text-gray-900'
             }`}
           >
@@ -67,7 +67,7 @@ const Experience = ({ isDark }) => {
           >
             {/* Timeline Line */}
             <div
-              className={`absolute left-0 md:left-1/2 top-0 bottom-0 w-0.5 ${
+              className={`absolute left-6 sm:left-0 md:left-1/2 top-0 bottom-0 w-0.5 ${
                 isDark ? 'bg-accent-purple/30' : 'bg-accent-teal/30'
               }`}
             />
@@ -86,11 +86,11 @@ const Experience = ({ isDark }) => {
                     className={`relative flex ${isEven ? 'md:flex-row' : 'md:flex-row-reverse'}`}
                   >
                     {/* Timeline dot */}
-                    <div className="absolute left-0 md:left-1/2 -translate-x-1/2 w-12 h-12 flex items-center justify-center">
+                    <div className="absolute left-3 sm:left-0 md:left-1/2 -translate-x-1/2 w-12 h-12 flex items-center justify-center">
                       <motion.div
                         whileHover={{ scale: 1.2, rotate: 360 }}
                         transition={{ duration: 0.5 }}
-                        className={`w-10 h-10 rounded-full flex items-center justify-center ${
+                        className={`w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center ${
                           isEducation
                             ? isDark
                               ? 'bg-accent-teal text-dark-bg'
@@ -100,19 +100,19 @@ const Experience = ({ isDark }) => {
                             : 'bg-accent-purple text-white'
                         }`}
                       >
-                        <Icon size={20} />
+                        <Icon size={18} className="sm:w-5 sm:h-5" />
                       </motion.div>
                     </div>
 
                     {/* Content */}
                     <div
                       className={`w-full md:w-1/2 ${
-                        isEven ? 'md:pr-12 md:text-right' : 'md:pl-12 md:text-left pl-20 md:pl-12'
-                      } pl-20 md:pl-0`}
+                        isEven ? 'md:pr-12 md:text-right' : 'md:pl-12 md:text-left'
+                      } pl-16 sm:pl-20 md:pl-0`}
                     >
                       <motion.div
                         whileHover={{ y: -5 }}
-                        className={`p-6 rounded-lg transition-all ${
+                        className={`p-4 sm:p-6 rounded-lg transition-all ${
                           isDark
                             ? 'bg-dark-secondary hover:bg-dark-tertiary'
                             : 'bg-gray-50 hover:bg-gray-100'
@@ -120,7 +120,7 @@ const Experience = ({ isDark }) => {
                       >
                         {/* Company/Institution */}
                         <h3
-                          className={`text-xl font-bold ${
+                          className={`text-base sm:text-lg md:text-xl font-bold ${
                             isDark ? 'text-white' : 'text-gray-900'
                           }`}
                         >
@@ -129,7 +129,7 @@ const Experience = ({ isDark }) => {
 
                         {/* Position/Degree */}
                         <p
-                          className={`text-lg font-semibold mt-1 ${
+                          className={`text-sm sm:text-base md:text-lg font-semibold mt-1 ${
                             isEducation
                               ? 'text-accent-teal'
                               : 'text-accent-purple'
@@ -139,30 +139,30 @@ const Experience = ({ isDark }) => {
                         </p>
 
                         {/* Duration */}
-                        <p className={isDark ? 'text-gray-400 text-sm mt-2' : 'text-gray-600 text-sm mt-2'}>
+                        <p className={isDark ? 'text-gray-400 text-xs sm:text-sm mt-2' : 'text-gray-600 text-xs sm:text-sm mt-2'}>
                           {exp.duration}
                         </p>
 
                         {/* CGPA (for education) */}
                         {exp.cgpa && (
-                          <p className={isDark ? 'text-gray-400 text-sm' : 'text-gray-600 text-sm'}>
+                          <p className={isDark ? 'text-gray-400 text-xs sm:text-sm' : 'text-gray-600 text-xs sm:text-sm'}>
                             CGPA: {exp.cgpa} ({exp.percentage})
                           </p>
                         )}
 
                         {/* Percentage (for education without CGPA) */}
                         {!exp.cgpa && exp.percentage && (
-                          <p className={isDark ? 'text-gray-400 text-sm' : 'text-gray-600 text-sm'}>
+                          <p className={isDark ? 'text-gray-400 text-xs sm:text-sm' : 'text-gray-600 text-xs sm:text-sm'}>
                             {exp.percentage}
                           </p>
                         )}
 
                         {/* Responsibilities */}
                         {exp.responsibilities && (
-                          <ul className={`mt-4 space-y-2 text-sm ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
+                          <ul className={`mt-3 sm:mt-4 space-y-1.5 sm:space-y-2 text-xs sm:text-sm ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
                             {exp.responsibilities.map((resp, idx) => (
                               <li key={idx} className="flex items-start">
-                                <span className="mr-3 mt-1">▸</span>
+                                <span className="mr-2 sm:mr-3 mt-0.5 sm:mt-1 flex-shrink-0">▸</span>
                                 <span>{resp}</span>
                               </li>
                             ))}
